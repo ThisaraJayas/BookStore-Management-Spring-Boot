@@ -5,6 +5,8 @@ import com.bookStore.bookStore.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BookService {
 
@@ -13,5 +15,8 @@ public class BookService {
 
     public void save(Book b){
         bRepo.save(b);
+    }
+    public List<Book> getAllBook(){
+        return bRepo.findAll();
     }
 }

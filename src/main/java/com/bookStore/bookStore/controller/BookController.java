@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 public class BookController {
@@ -25,8 +28,14 @@ public class BookController {
     }
 
     @GetMapping("/available_books")
-    public String getAllBook(){
-        return "bookList";
+    public ModelAndView getAllBook(){
+        List<Book>list=bookService.getAllBook();
+//        ModelAndView m=new ModelAndView();
+//        m.setViewName("bookList");
+//        m.addObject("book",list);
+//        WE HAVE SHORT METHOD JUST TO RETURN
+
+        return new ModelAndView("bookList","book",list);
     }
 
     @PostMapping("/save")
@@ -34,4 +43,5 @@ public class BookController {
         bookService.save(b);
         return "redirect:/available_books";
     }
+
 }
