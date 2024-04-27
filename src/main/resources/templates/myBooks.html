@@ -54,7 +54,7 @@
             <td th:text="${b.name}"></td>
             <td th:text="${b.author}"></td>
             <td th:text="${b.price}"></td>
-            <td></td>
+            <td><a th:href="@{/deleteMyList/{id}(id=${b.id})}"><button>Delete</button></a></td>
         </tr>
 
         </tbody>
