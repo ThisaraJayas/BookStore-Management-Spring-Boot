@@ -47,6 +47,7 @@ public class BookController {
         return "redirect:/available_books";
     }
 
+    
     @GetMapping("/my_books")
     public String getMyBooks(Model model){
         List<MyBookList>list=myBookListService.getAllMyBooks();
